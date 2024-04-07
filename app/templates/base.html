@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="../static/css/bootstrap.css"/>
+      <title>{% block title %}Askme{% endblock %}</title>
+  </head>
+  <body>
+    <nav class="navbar bg-body-tertiary">
+
+      {% block header %}
+
+      <div class="container-sm-fluid container-lg">
+        <a class="navbar-brand">AskPupkin</a>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+          <button class="btn btn-outline-success" type="submit">Ask!</button>
+        </form>
+
+        {% block info %}
+        {% endblock %}
+
+      </div>
+
+      {% endblock %}
+
+    </nav>
+
+    <main class="container-sm-fluid container-lg mt-3">
+      <div class="row">
+        <div class="col-8">
+
+          {% block content %}
+          {% endblock %}
+
+        </div>
+
+        {% block sidebar %}
+
+        <div class="col-3 mt-5">
+          <h3>Popular Tags</h3>
+          <div class="row">
+            <div class="col">
+              <span class="badge text-bg-primary">Primary</span>
+              <span class="badge text-bg-secondary">Secondary</span>
+              <span class="badge text-bg-success">Success</span>
+              <span class="badge text-bg-danger">Danger</span>
+              <span class="badge text-bg-warning">Warning</span>
+              <span class="badge text-bg-info">Info</span>
+              <span class="badge text-bg-light">Light</span>
+              <span class="badge text-bg-dark">Dark</span>
+            </div>
+          </div>
+          <h3 class="mt-5">Best Members</h3>
+          <div>
+            <a href="" class="d-block">Mr. Freeman</a>
+            <a href="" class="d-block">Dr. House</a>
+            <a href="" class="d-block">Bender</a>
+            <a href="" class="d-block">Queen Victoria</a>
+            <a href="" class="d-block">V. Pupkin</a>
+          </div>
+        </div>
+
+        {% endblock %}
+
+      </div>
+    </main>
+    <footer class="bottom p-3 bg-light">
+
+      {% block footer %}
+
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+
+      {% endblock %}
+
+    </footer>
+  </body>
+</html>

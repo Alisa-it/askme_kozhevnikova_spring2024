@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block info %}
+
+<ul class="nav gap-3">
+    <li class="nav-item d-inline">
+    <a href="/settings">Settings</a>
+    </li>
+    <li class="nav-item d-inline">
+    <a href="/login">Log in</a>
+    </li>
+</ul>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="d-flex align-items-center mb-4">
+  <h1>Registration</h1>
+</div>
+<div class="row gap-4 pe-5">
+    <div class="row">
+      <div class="col-3 center">
+        <p>Login</p>
+      </div>
+      <div class="col-7">
+        <input type="text" class="form-control" placeholder="Enter your login here">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+        <p>Email</p>
+      </div>
+      <div class="col-7">
+          <div class="input-group has-validation">
+            <input type="email" class="form-control is-invalid" placeholder="dr.pepper@mail.ru">
+              <div class="invalid-feedback">
+                Sorry, this email address already registered!
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+        <p>NickName</p>
+      </div>
+      <div class="col-7">
+        <input type="text" class="form-control" placeholder="Dr. Pepper">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+        <p>Password</p>
+      </div>
+      <div class="col-7">
+        <input type="password" class="form-control" placeholder="Enter your password here">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+        <p>Repeat password</p>
+      </div>
+      <div class="col-7">
+        <input type="password" class="form-control">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+        <p>Upload avatar</p>
+      </div>
+      <div class="col-7">
+          <div class="input-group">
+              <input type="file" class="form-control">
+              <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Choose</button>
+          </div>
+      </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-3"></div>
+        <div class="col">
+        <button type="submit" class="btn btn-outline-success">Register!</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

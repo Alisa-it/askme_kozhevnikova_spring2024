@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block info %}
+
+<ul class="nav gap-3">
+    <li class="nav-item d-inline">
+    <a href="/settings">Settings</a>
+    </li>
+    <li class="nav-item d-inline">
+    <a href="/login">Log in</a>
+    </li>
+</ul>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="row me-2">
+  <div class="col-3 p-2">
+    <div class="border w-100 mb-3" style="height: 130px">
+      <img src="img.jpg" class="img-fluid rounded-start" alt="..."/>
+    </div>
+    <div class="input-group flex-nowrap">
+      <input type="number" value="5" class="form-control" />
+    </div>
+  </div>
+  <div class="col">
+    <div class="card-body mx-2">
+      <h2 class="mb-3">
+        Question?
+      </h2>
+      <p class="card-text">
+        This is a wider card with supporting text below as a natural
+        lead-in to additional content. This content is a little bit
+        longer. This is a wider card with supporting text below as a natural
+        lead-in to additional content. This content is a little bit
+        longer. This is a wider card with supporting text below as a natural
+        lead-in to additional content. This content is a little bit
+        longer. This is a wider card with supporting text below as a natural
+        lead-in to additional content. This content is a little bit
+        longer.
+      </p>
+      <div class="row">
+        <div class="col-8">
+          <span>Tags</span>
+          <a href="/tag">tag</a>
+          <a href="/tag">tag</a>
+          <a href="/tag">tag</a>
+          <a href="/tag">tag</a>
+          <a href="/tag">tag</a>
+          <a href="/tag">tag</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+<article class="card my-3 w-100">
+  <div class="row g-0 p-2">
+    <div class="col-2 p-2">
+      <div class="border w-100 mb-3" style="height: 100px">
+        <img src="img.jpg" class="img-fluid rounded-start" alt="..."/>
+      </div>
+      <div class="input-group flex-nowrap">
+        <input type="number" value="3" class="form-control" />
+      </div>
+    </div>
+    <div class="col">
+      <div class="card-body">
+        <p class="card-text">
+          This is an answer card with supporting text below as a natural
+          lead-in to additional content. This content is a little bit
+          longer... This is an answer card with supporting text below as a natural
+          lead-in to additional content.
+        </p>
+        <div class="row position-absolute bottom-0 my-2">
+          <div class="col">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" >
+                <label class="form-check-label" for="flexCheckDefault">
+                  Correct!
+                </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="card my-3 w-100">
+  <div class="row g-0 p-2">
+    <div class="col-2 p-2">
+      <div class="border w-100 mb-3" style="height: 100px">
+        <img src="img.jpg" class="img-fluid rounded-start" alt="..."/>
+      </div>
+      <div class="input-group flex-nowrap">
+        <input type="number" value="5" class="form-control" />
+      </div>
+    </div>
+    <div class="col">
+      <div class="card-body">
+        <p class="card-text">
+          This is an answer card with supporting text below as a natural
+          lead-in to additional content. This content is a little bit
+          longer... This is an answer card with supporting text below as a natural
+          lead-in to additional content.
+        </p>
+        <div class="row position-absolute bottom-0 my-2">
+          <div class="col">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                <label class="form-check-label" for="flexCheckChecked">
+                  Correct!
+                </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+<hr>
+
+<div class="input-group">
+  <textarea class="form-control" placeholder="Enter your answer here..."></textarea>
+</div>
+
+<div class="my-3">
+  <button type="button" class="btn btn-outline-secondary">Answer</button>
+</div>
+
+{% endblock %}
