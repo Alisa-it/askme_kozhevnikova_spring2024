@@ -1,16 +1,17 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block info %}
 
 <div class="d-flex justify-content-between gap-3">
   <div class="border">
-    <img src="../static/img.jpg" width="50" height="50" />
+    <img src="{% static 'img/img.jpg' %}" width="50" height="50" />
   </div>
   <div class="d-flex flex-column justify-content-between">
     <div>Dr. Pepper</div>
     <div>
-      <a href="/settings">Settings</a>
-      <a href="/signup">Log out</a>
+      <a href="{% url 'settings' %}">Settings</a>
+      <a href="{% url 'signup' %}">Log out</a>
     </div>
   </div>
 </div>
@@ -24,123 +25,11 @@
   <a href="/">New Questions</a>
 </div>
 
-<article class="card mb-3 w-100">
-  <div class="row g-0">
-    <div class="col-3 p-2">
-      <div class="border w-100 mb-3" style="height: 100px">
-        <img src="../static/img.jpg" class="img-fluid rounded-start" alt="..."/>
-      </div>
-      <div class="input-group flex-nowrap">
-        <input type="number" value="3" class="form-control" />
-      </div>
-    </div>
-    <div class="col">
-      <div class="card-body">
-        <h5 class="card-title">
-          <a href="/question">Question?</a>
-        </h5>
-        <p class="card-text">
-          This is a wider card with supporting text below as a natural
-          lead-in to additional content. This content is a little bit
-          longer.
-        </p>
-        <div class="row">
-          <a class="col-4" href="/question">answers (3)</a>
-          <div class="col-8">
-            <span>Tags</span>
-            <a href="/tag">tag</a>
-            <a href="/tag">tag</a>
-            <a href="/tag">tag</a>
-            <a href="/tag">tag</a>
-            <a href="/tag">tag</a>
-            <a href="/tag">tag</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-<article class="card mb-3 w-100">
-  <div class="row g-0">
-    <div class="col-3 p-2">
-      <div class="border w-100 mb-3" style="height: 100px">
-        <img src="../static/img.jpg"
-             class="img-fluid rounded-start" alt="..."/>
-      </div>
-      <div class="input-group flex-nowrap">
-        <input type="number" value="0" class="form-control" />
-      </div>
-    </div>
-    <div class="col">
-      <div class="card-body">
-        <h5 class="card-title">
-          <a href="/question">Question?</a>
-        </h5>
-        <p class="card-text">
-          This is a wider card with supporting text below as a natural
-          lead-in to additional content. This content is a little bit
-          longer.
-        </p>
-        <div class="row">
-          <a class="col-4" href="/question">answers (4)</a>
-          <div class="col-8">
-            <span>Tags</span>
-            <a href="/tag">tag</a>
-            <a href="/tag">tag</a>
-            <a href="/tag">tag</a>
-            <a href="/tag">tag</a>
-            <a href="/tag">tag</a>
-            <a href="/tag">tag</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-<article class="card mb-3 w-100">
-  <div class="row g-0">
-    <div class="col-3 p-2">
-      <div class="border w-100 mb-3" style="height: 100px">
-        <img src="../static/img.jpg" class="img-fluid rounded-start" alt="..."/>
-      </div>
-      <div class="input-group flex-nowrap">
-        <input type="number" value="1" class="form-control" />
-      </div>
-    </div>
-    <div class="col">
-      <div class="card-body">
-        <h5 class="card-title">
-          <a href="/question">Question?</a>
-        </h5>
-        <p class="card-text">
-          This is a wider card with supporting text below as a natural
-          lead-in to additional content. This content is a little bit
-          longer.
-        </p>
-        <div class="row">
-          <a class="col-4" href="/question">answers (3)</a>
-          <div class="col-8">
-            <span>Tags</span>
-            <a href="/tag">tag</a>
-            <a href="/tag">tag</a>
-            <a href="/tag">tag</a>
-            <a href="/tag">tag</a>
-            <a href="/tag">tag</a>
-            <a href="/tag">tag</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-<nav style="height: 100px">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>
+{% for question in questions %}
+
+  {% include "layouts/question_card.html" %}
+
+{% endfor %}
+{% include "layouts/pagination.html" with page_obj=questions%}
 
 {% endblock %}
