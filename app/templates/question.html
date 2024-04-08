@@ -18,8 +18,8 @@
 
 <div class="row me-2">
   <div class="col-3 p-2">
-    <div class="border w-100 mb-3" style="height: 130px">
-      <img src="{% static 'img/img.jpg' %}" class="img-fluid rounded-start" alt="..."/>
+    <div class="border w-100 mb-3 text-center" style="height: 130px">
+      <img src="{% static 'img/img.jpg' %}" class="img-fluid rounded-start h-100" alt="..."/>
     </div>
     <div class="input-group flex-nowrap">
       <input type="number" value="5" class="form-control" />
@@ -52,8 +52,8 @@
 
 {% endfor %}
 
+{% include "layouts/pagination.html" with page_obj=answers%}
 <hr>
-
 <div class="input-group">
   <textarea class="form-control" placeholder="Enter your answer here..."></textarea>
 </div>

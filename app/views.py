@@ -13,7 +13,7 @@ ANSWERS = [
     {
         "text": f"This is very interesting answer number {i}",
     }
-    for i in range(5)
+    for i in range(25)
 ]
 
 TAGS = [
@@ -45,8 +45,9 @@ def ask(request):
 
 
 def question(request, question_id):
+    page_obj = paginate(request, ANSWERS, 10)
     item = QUESTIONS[question_id]
-    return render(request, "question.html", {"questions": item, "answers": ANSWERS, "tags": TAGS})
+    return render(request, "question.html", {"questions": item, "answers": page_obj, "tags": TAGS})
 
 
 def login(request):
