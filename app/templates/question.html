@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "layouts/base.html" %}
 {% load static %}
 
 {% block info %}
@@ -48,7 +48,7 @@
 
 {% for answer in answers %}
 
-  {% include "layouts/answer_card.html" %}
+  {% include "components/answer_card.html" %}
 
 {% endfor %}
 
