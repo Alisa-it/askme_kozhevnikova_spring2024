@@ -1,4 +1,4 @@
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render
 
 QUESTIONS = [
@@ -25,9 +25,19 @@ TAGS = [
 
 
 def paginate(request, objects_list, per_page):
+
     page_num = request.GET.get('page', 1)
     paginator = Paginator(objects_list, per_page)
-    obj = paginator.page(page_num)
+
+    try:
+        obj = paginator.page(page_num)
+
+    except PageNotAnInteger:
+        obj = paginator.page(1)
+
+    except EmptyPage:
+        obj = paginator.page(paginator.num_pages)
+
     return obj
 
 
@@ -46,6 +56,7 @@ def ask(request):
 
 def question(request, question_id):
     page_obj = paginate(request, ANSWERS, 10)
+
     item = QUESTIONS[question_id]
     return render(request, "question.html", {"questions": item, "answers": page_obj, "tags": TAGS})
 

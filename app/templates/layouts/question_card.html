@@ -20,7 +20,7 @@
         <div class="row">
           <a class="col-4" href="{% url 'question' question.id %}">answers (3)</a>
           <div class="col-8">
-            <span>Tags</span>
+             <a>Tags:</a>
             {% for tag in tags %}
               <a href="{% url 'tag' tag.name %}"> {{ tag.name }} </a>
             {% endfor %}

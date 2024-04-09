@@ -30,7 +30,8 @@
   {% include "layouts/question_card.html" %}
 
 {% endfor %}
-{% include "layouts/pagination.html" with page_obj=questions%}
+
+{% include "components/pagination.html" with page_obj=questions%}
 
 {% endblock %}
 

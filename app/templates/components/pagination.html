@@ -1,4 +1,5 @@
 {% load static %}
+
 {% if page_obj.has_other_pages %}
 <nav>
   <ul class="pagination">
@@ -7,6 +8,7 @@
     {% else %}
         <li class="disabled page-item"><span class="page-link">&laquo;</span></li>
     {% endif %}
+
     {% for i in page_range|default_if_none:page_obj.paginator.get_elided_page_range %}
         {% if page_obj.number == i %}
             <li class="active page-item"><span class="page-link">{{ i }}</span>
@@ -19,6 +21,7 @@
             {% endif %}
         {% endif %}
     {% endfor %}
+
     {% if page_obj.has_next %}
         <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
     {% else %}
