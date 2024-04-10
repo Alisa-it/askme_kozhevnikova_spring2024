@@ -1,27 +1,6 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render
-
-QUESTIONS = [
-    {
-        "title": f"Question {i}",
-        "text": f"This is question number {i}",
-        "id": i,
-    }
-    for i in range(95)
-]
-ANSWERS = [
-    {
-        "text": f"This is very interesting answer number {i}",
-    }
-    for i in range(25)
-]
-
-TAGS = [
-    {
-        "name": tag,
-    }
-    for tag in ['blabla', 'tag', 'meme']
-]
+from app.models import Question, Answer
 
 
 def paginate(request, objects_list, per_page):
@@ -42,8 +21,10 @@ def paginate(request, objects_list, per_page):
 
 
 def index(request):
-    page_obj = paginate(request, QUESTIONS, 20)
-    return render(request, "index.html", {"questions": page_obj, "tags": TAGS})
+    que = Question.objects.get_by_time()
+
+    page_obj = paginate(request, que, 20)
+    return render(request, "index.html", {"questions": page_obj})
 
 
 def settings(request):
@@ -55,10 +36,10 @@ def ask(request):
 
 
 def question(request, question_id):
-    page_obj = paginate(request, ANSWERS, 10)
-
-    item = QUESTIONS[question_id]
-    return render(request, "question.html", {"questions": item, "answers": page_obj, "tags": TAGS})
+    que = Question.objects.get_question(question_id)
+    ans = Answer.objects.get_answer(question_id)
+    page_obj = paginate(request, ans, 10)
+    return render(request, "question.html", {"question": que[0], "answers": page_obj})
 
 
 def login(request):
@@ -70,10 +51,14 @@ def register(request):
 
 
 def tag(request, tag_name):
-    page_obj = paginate(request, QUESTIONS[10:], 10)
-    return render(request, "tag.html", {"questions": page_obj, "tag": tag_name, "tags": TAGS})
+    que = Question.objects.get_by_tag(tag_name)
+
+    page_obj = paginate(request, que, 10)
+    return render(request, "tag.html", {"questions": page_obj, "tag": tag_name})
 
 
 def hot(request):
-    page_obj = paginate(request, QUESTIONS[18:], 10)
-    return render(request, "hot.html", {"questions": page_obj, "tags": TAGS})
+    que = Question.objects.hot()
+
+    page_obj = paginate(request, que, 10)
+    return render(request, "hot.html", {"questions": page_obj})

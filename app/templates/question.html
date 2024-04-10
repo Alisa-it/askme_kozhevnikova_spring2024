@@ -22,21 +22,21 @@
       <img src="{% static 'img/img.jpg' %}" class="img-fluid rounded-start h-100" alt="..."/>
     </div>
     <div class="input-group flex-nowrap">
-      <input type="number" value="5" class="form-control" />
+      <input type="number" value="{{question.votes_count}}" class="form-control" />
     </div>
   </div>
   <div class="col">
     <div class="card-body mx-2">
       <h2 class="mb-3">
-        {{questions.title}}
+        {{question.title}}
       </h2>
       <p class="card-text">
-        {{questions.text}}
+        {{question.body}}
       </p>
       <div class="row">
         <div class="col-8">
           <a>Tags:</a>
-            {% for tag in tags %}
+            {% for tag in question.tags.all %}
               <a href="{% url 'tag' tag.name %}"> {{ tag.name }} </a>
             {% endfor %}
         </div>

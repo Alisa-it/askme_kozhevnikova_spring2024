@@ -6,13 +6,13 @@
         <img src="{% static 'img/img.jpg' %}" class="img-fluid rounded-start h-100" alt="..."/>
       </div>
       <div class="input-group flex-nowrap">
-        <input type="number" value="3" class="form-control" />
+        <input type="number" value="{{ answer.votes_count }}" class="form-control" />
       </div>
     </div>
     <div class="col">
       <div class="card-body">
         <p class="card-text">
-          {{ answer.text }}
+          {{ answer.body }}
         </p>
         <div class="row position-absolute bottom-0 my-2">
           <div class="col">
